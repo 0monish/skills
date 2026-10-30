@@ -1,0 +1,67 @@
+{
+  "captured_at": "2026-10-30T23:36:55.868820+00:00",
+  "prs": 794,
+  "reviews": 2162,
+  "pr_comments": 2637,
+  "inline_comments": 1824,
+  "extra_connections": 0,
+  "complete": true,
+  "review_states": {
+    "COMMENTED": 1575,
+    "APPROVED": 321,
+    "DISMISSED": 111,
+    "CHANGES_REQUESTED": 155
+  },
+  "requested_prs": 74,
+  "stats": {
+    "changes_requested_bodies": {
+      "records": 155,
+      "median_words": 141,
+      "p90_words": 342,
+      "max_words": 680,
+      "over_500_words": 5,
+      "total_characters": 211657
+    },
+    "all_inline_roots": {
+      "records": 1047,
+      "median_words": 223,
+      "p90_words": 502,
+      "max_words": 8008,
+      "over_500_words": 105,
+      "total_characters": 2409909
+    },
+    "inline_roots_attached_to_changes_requested_records": {
+      "records": 203,
+      "median_words": 123,
+      "p90_words": 271,
+      "max_words": 460,
+      "over_500_words": 0,
+      "total_characters": 235555
+    },
+    "all_pr_conversation_comments": {
+      "records": 2637,
+      "median_words": 192,
+      "p90_words": 722,
+      "max_words": 2385,
+      "over_500_words": 515,
+      "total_characters": 7715268
+    }
+  },
+  "same_pr_exact_repeat_groups": [],
+  "all_counts_verified": true,
+  "repository": "https://github.com/gyldlab/keld",
+  "method": {
+    "pull_requests": "GitHub GraphQL, 32 pages of up to 25 PRs ordered by creation; nested review/comment totals reconciled",
+    "inline_comments": "GitHub REST pulls/comments, 19 pages of up to 100 comments, last page 24",
+    "words": "Number of non-whitespace runs in raw API body; includes markup, code and folded details",
+    "p90": "Nearest-rank 90th percentile",
+    "exact_repeats": "Same PR and identical trimmed body, at least 150 characters; 155 CHANGES_REQUESTED bodies plus 1047 root inline bodies; excludes replies and conversation comments"
+  },
+  "limits": [
+    "Review states are stored submission states, not a list of current blockers.",
+    "Dismissed reviews can have had another earlier state.",
+    "Deleted or pre-edit comment versions are not recovered.",
+    "Only selected records received semantic presentation analysis.",
+    "Counts and whitespace words are not model tokens or measured comprehension."
+  ]
+}

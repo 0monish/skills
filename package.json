@@ -1,0 +1,16 @@
+{
+  "name": "0monish-skills",
+  "private": true,
+  "description": "Reusable agent skills by Monish Khandelwal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0monish/skills.git"
+  },
+  "scripts": {
+    "check": "node scripts/check-skills.mjs"
+  },
+  "devDependencies": {
+    "yaml": "2.9.1"
+  }
+}

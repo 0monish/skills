@@ -1,0 +1,4 @@
+interface:
+  display_name: "Request Changes"
+  short_description: "Write concise, evidence-backed review findings"
+  default_prompt: "Use $request-changes to prepare concise, evidence-backed pull request change requests."
