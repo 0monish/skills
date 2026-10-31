@@ -72,6 +72,10 @@ A table containing a long defect, source excerpts, patch, and test procedure is 
 
 A collapsible details block hides rendered text but still sends its contents through the API. It is therefore not a context reduction mechanism by itself.
 
+### Report evidence without process labels
+
+Historical examples can contain reviewer branding, tool badges, or internal workflow narration. These labels do not belong in the reusable output pattern. Keep method details when they affect reproducibility, evidence limits, or required disclosure. For example, source inspection and an executed platform test establish different evidence. Preserve citations and decision ownership without copying ceremonial reviewer labels.
+
 ### Links should recover the decision
 
 Role-labelled links tell an agent why it would open a target. Code provides the inspected source; Rule provides the controlling contract; Run provides an execution receipt; Thread provides the canonical conversation or decision; Fix provides the corrective change. None of these labels makes its target trustworthy by itself.

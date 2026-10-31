@@ -85,6 +85,8 @@ Honor the repository's documented scale. Otherwise, use impact severity for supp
 
 ## Keep it readable
 
+MUST omit reviewer branding, tool/model badges, and internal orchestration narration, even when present in source examples. Include method or tool details only when needed to reproduce a result, explain an evidence limit, or meet a required disclosure. Preserve source links and decision ownership.
+
 Use [ASD-STE100-inspired English](https://asd-ste100.org/STE_faq.html): short active sentences, explicit actors, one term per concept, and conditions before actions. This is not formal STE compliance. MUST NOT use em dashes.
 
 SHOULD use compact bullets for expanded findings, tables for real comparisons, and links for navigation. Add explanation only when needed to reproduce, prove, decide, or verify. Preserve causality and uncertainty when shortening.
