@@ -51,18 +51,17 @@ The skill keeps impact, acceptance, and certainty distinct. HIGH is an impact le
 
 A repository's documented scale takes precedence. P0 and P1 are not assigned a universal meaning. Scheduling priority is omitted unless the task requires it.
 
-### Icons support the text
+### Icons are a visual grammar, not decoration
 
-| Icon | Role | Reason |
-| --- | --- | --- |
-| ⚠️ | Actionable finding | A consistent visual entry point for defects and acceptance gaps. |
-| ❓ | Unresolved question | Makes missing evidence or an undecided contract visible. |
-| 💡 | Optional suggestion | Separates an improvement from a required correction. |
-| ✅ | Verified fix | Reserved for a supported outcome in re-review. |
+The initial four-icon scheme did not distinguish severity, review intent, and topic at a glance. A [CodeRabbit KELD example](https://github.com/gyldlab/keld/pull/2#discussion_r3774406489) makes these axes visible separately: reliability domain, major impact, and heavy-lift effort. Its [security counterpart](https://github.com/gyldlab/keld/pull/2#discussion_r3774406507) uses a different domain marker. In a local inventory of 715 root inline comments by that bot, 595 contained "Quick win" and 119 "Heavy lift"; many included collapsed analysis. These are descriptive counts of the inspected records, not measured user comprehension or token savings.
 
-There is one icon per finding heading. Severity remains written in text. Colored circles for every severity would add another legend and depend on readers interpreting the colors consistently. An icon beside every field would repeat decoration without adding a new decision.
+The revised design uses **different shapes plus words** for impact: 🛑 CRITICAL, 🔺 HIGH, 🔶 MEDIUM, 🔹 LOW. Nonseverity actions have their own shapes: 🚧 GATE, 🧷 TODO, 🔎 QUESTION, 🌱 SUGGESTION. A topic icon, such as 🛡️ security or 🧵 concurrency, is optional and never replaces its text label. Expanded findings use stable 📎 Evidence, 🛠 Change, and 🧪 Check field markers. Compact corrections do not receive these three repeated fields.
 
-This follows the accessibility principle of preserving meaning in text. It is not a claim that a Markdown convention alone establishes WCAG conformance.
+The title puts impact first, then topic and intent. Review status stays separate. Do not put an effort estimate into every title: a HIGH defect can be a local fix or an architectural repair. `vulnerability` is a security finding type, not a synonym for CRITICAL. An unverified exploit hypothesis is not a confirmed vulnerability. `GATE` names an unmet verified acceptance condition, not the impact of a hypothetical product bug.
+
+This uses the separation of severity and security severity described in [GitHub code scanning](https://docs.github.com/en/code-security/concepts/code-scanning/code-scanning-alerts) and the [FIRST CVSS v4 qualitative scale](https://www.first.org/cvss/v4.0/specification-document) as terminology references, **not** as authority to invent CVSS scores. The independent review-intent grammar is informed by [Conventional Comments](https://conventionalcomments.org/). Shape and text redundancies follow [W3C use-of-color guidance](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html), without claiming WCAG certification.
+
+The optional [worked examples](../skills/request-changes/references/examples.md) are routed only when the case is complex or ambiguous. They contain historical primary links and explicit limits, not current findings. Markdown examples are not duplicated as executable templates or JSON.
 
 ### Lists, tables, and links have different jobs
 
@@ -103,6 +102,9 @@ A resolved flag can record conversation state without proving the code is correc
 | An identical full finding in both thread and summary | Two copies can drift and consume context. |
 | A mandatory JSON block beside Markdown | Duplicates the same semantics without a current machine-consumer requirement. |
 | A new finding ID registry | GitHub thread IDs already identify published conversations. |
+| A purely color-coded severity ladder | Color alone is not an accessible or portable distinction. |
+| Putting effort in every title | Effort estimates can be unverified and are independent of impact. |
+| Icons for every body sentence | Complicates scanning and consumes input without adding a decision. |
 | Every pointer in every finding | Adds repetitive links when the anchor and local statement already suffice. |
 | Treating "fixed" as the only closed state | Misrepresents disproved claims and superseded requirements. |
 | Severity inferred from an icon or P-number | Requires an implicit legend and can mix impact with urgency. |

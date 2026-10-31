@@ -1,4 +1,4 @@
-import { readFile, readdir } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import { basename, extname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isMap, isScalar, parseDocument } from "yaml";
@@ -47,6 +47,11 @@ async function checkSkill(directory) {
       "description must occupy one physical source line");
   }
   requireThat(match[2].trim().length > 0, file, "instruction body must not be empty");
+  for (const link of match[2].matchAll(/\]\((references\/[a-z0-9/_-]+\.md)(?:#[^)]*)?\)/gi)) {
+    const reference = join(directory, link[1]);
+    try { await access(reference); }
+    catch { record(file, "missing referenced file: " + link[1]); }
+  }
 
   const configFile = join(directory, "agents", "openai.yaml");
   const configDoc = yaml(await readFile(configFile, "utf8"), configFile);

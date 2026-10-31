@@ -39,23 +39,25 @@ The portable instructions use the [Agent Skills format](https://agentskills.io/s
 ## Review format
 
 ```markdown
-### ⚠️ HIGH | correctness | blocking: <observable failure>
+### 🔺 HIGH · 🧵 concurrency · issue (blocking): <observable failure>
 
 - **Problem:** <trigger, defect, consequence>
-- **Evidence:** <observed result or source trace>; [Code: function](URL), [Rule: section](URL).
-- **Change:** <required behavior>
-- **Check:** <scenario and expected result>; <proposed or executed>.
+- **📎 Evidence (traced):** <source trace>; [Code: function](URL), [Rule: section](URL).
+- **🛠 Change:** <required behavior>
+- **🧪 Check (proposed):** <scenario and expected result>.
 ```
 
 Use the expanded form when explanation is needed. A simple correction can be one line:
 
 ```markdown
-⚠️ **change (blocking):** Rename `retryMS` to `retryMs` to match adjacent public options.
+🧷 **todo (blocking):** Fix the new local variable typo `timeotMs` to `timeoutMs`.
 ```
+
+When a repository has no severity scale, use **🛑 Critical, 🔺 High, 🔶 Medium, 🔹 Low**. Keep a repository's existing severity or priority labels without converting them. Defects are `issue` comments; separate kinds use **🚧 Gate, 🧷 Todo, 🔎 Question, 🌱 Suggestion**. These markers differ by shape and always have text labels. `Vulnerability` names a supported security weakness, not a severity or a merge verdict.
 
 One cause gets one canonical thread. Use `Code`, `Rule`, `Run`, `Thread`, and `Fix` link labels only where they help navigation. The summary links findings instead of repeating them. Re-review distinguishes fixed, unverified, refuted, superseded, and deferred claims.
 
-Questions, optional suggestions, and verified fixes use `❓`, `💡`, and `✅`, with text labels. Impact severity stays separate from blocking status. A verified missing acceptance condition uses `GATE` without inventing a product defect.
+[Eight worked examples](skills/request-changes/references/examples.md) cover security, races, missing proof, compatibility, compact comments, re-review, summaries, and terminology traps. Agents load this reference only when the relevant pattern is needed.
 
 [Design decisions](docs/request-changes-design.md) explain the tradeoffs. [Review evidence](docs/review-evidence.md) contains the KELD census and cross-repository comparisons. The skill works without loading either document.
 
@@ -74,7 +76,7 @@ The check validates this collection's deliberately small profile:
 - Flat `skills/<name>/SKILL.md` layout, matching lowercase names, and only `name` and `description` frontmatter.
 - A nonempty, single-line description and a nonempty instruction body.
 - Valid `agents/openai.yaml` interface fields and the correct explicit invocation.
-- No em dashes in authored Markdown or YAML.
+- No em dashes in authored Markdown or YAML. Referenced examples must exist.
 
 These are repository checks, not a certification of agent behavior or formal ASD-STE100 compliance. Keep skill descriptions short. Add reference files only when a real task branch needs them. Keep research, installation guidance, and evaluations outside the installed skill.
 
